@@ -27,16 +27,6 @@ extern u16 D_800BDA6E_BE66E;
 extern u8 D_800D5206_D5E06[5];
 extern s8 D_800D5540_D6140;
 
-s32 func_800364DC_370DC(u32);
-void func_800365E8_371E8(u32);
-s16 func_8005B7B8_5C3B8(s16 win_id, u32 spriteMainFsPair, s16 arg2, s16 arg3, u16 arg4);
-void func_8005BA90_5C690(s16, s16, s16);
-void func_8005BCA4_5C8A4(s16, s16, s16);
-void func_8005DDDC_5E9DC(void);
-void func_8005F904_60504(void);
-void func_800605A4_611A4(u32);
-
-
 void func_8005A6B0_5B2B0(void) {
     Process* temp_v0_4;
     void* temp_v0_6;
@@ -304,7 +294,10 @@ INCLUDE_ASM("asm/nonmatchings/window", func_800600C0_60CC0);
 
 INCLUDE_ASM("asm/nonmatchings/window", func_8006010C_60D0C);
 
-void func_80060144_60D44(void) {
+void func_80060144_60D44(s16 obj) {
+    #ifdef DEBUG
+
+    #endif
 }
 
 INCLUDE_ASM("asm/nonmatchings/window", func_8006014C_60D4C);

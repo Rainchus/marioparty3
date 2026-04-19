@@ -1036,6 +1036,23 @@ MBMasuBlockGet = 0x800EB5DC; //rom:0xFF1FC segment:shared_board
 MBMasuKakusiBlockGet = 0x800EBCD4; //rom:0xFF8F4 segment:shared_board
 MBMasuBlockTblSet = 0x800EBD54; //rom:0xFF974 segment:shared_board
 
+D_80100DA0_shared_board = 0x80100DA0; //segment:shared_board
+D_80100DC0_shared_board = 0x80100DC0; //segment:shared_board
+D_80100DD4_shared_board = 0x80100DD4; //segment:shared_board
+D_80100DF4_shared_board = 0x80100DF4; //segment:shared_board
+D_80100DE8_shared_board = 0x80100DE8; //segment:shared_board
+D_80100E04_shared_board = 0x80100E04; //segment:shared_board
+
+D_80100DB4_shared_board = 0x80100DB4; //segment:shared_board
+D_80100DCC_shared_board = 0x80100DCC; //segment:shared_board
+D_80100DE0_shared_board = 0x80100DE0; //segment:shared_board
+D_80100DFC_shared_board = 0x80100DFC; //segment:shared_board
+D_80100DF0_shared_board = 0x80100DF0; //segment:shared_board
+D_80100E10_shared_board = 0x80100E10; //segment:shared_board
+
+D_80100E5C_shared_board = 0x80100E5C; //segment:shared_board
+D_80100E44_shared_board = 0x80100E44; //segment:shared_board
+
 MBVecRotateZ = 0x800D8A90; //rom:0xEC6B0 segment:shared_board
 
 //ovl_81

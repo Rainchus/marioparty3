@@ -74,6 +74,15 @@ void func_8005FFA8_60BA8(s16);
 void func_8006022C_60E2C(u32 mesg, s32);
 void func_80060394_60F94(s32, s16*, s32);
 void func_80061388_61F88(s16);
+void func_80060144_60D44(s16 obj);
+s32 func_800364DC_370DC(u32);
+void func_800365E8_371E8(u32);
+s16 func_8005B7B8_5C3B8(s16 win_id, u32 spriteMainFsPair, s16 arg2, s16 arg3, u16 arg4);
+void func_8005BA90_5C690(s16, s16, s16);
+void func_8005BCA4_5C8A4(s16, s16, s16);
+void func_8005DDDC_5E9DC(void);
+void func_8005F904_60504(void);
+void func_800605A4_611A4(u32);
 
 extern TextWindow* D_800CC69C_CD29C;
 
