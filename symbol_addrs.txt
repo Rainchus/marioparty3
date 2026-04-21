@@ -721,10 +721,12 @@ MBMasuLinkNumGet = 0x800EB1B0; //rom:0xFEDD0
 MBMasuCreate = 0x800EAE10; //rom:0xFEA30
 SaveFileEncode = 0x8004F5A4; //rom:0x501A4
 gEncodedSaveBuffer = 0x800CD0C0;
-gTotalSpaces = 0x80105210; // type:u16
-kakusiMasuCoin = 0x800CE1C4; // type:s16
-kakusiMasuStar = 0x800D124E; // type:s16
-kakusiMasuItem = 0x800CC4E4; // type:s16
+gTotalSpaces = 0x80105210; //segment:main type:u16
+kakusiMasuCoin = 0x800CE1C4; // type:s16 size:0x2
+kakusiMasuStar = 0x800D124E; // type:s16 size:0x2
+D_800CC3DC_CCFDC = 0x800CC3DC; //type:s32 size:0x4
+D_800CC3E0_CCFE0 = 0x800CC3E0; //type:u8 size:0x4
+kakusiMasuItem = 0x800CC4E4; // type:s16 size:0x2
 
 kakusiMasuCoinOld = 0x800CE1E8; //type:s16 size:0x14
 kakusiMasuStarOld = 0x800D59E0; //type:s16 size:0x14

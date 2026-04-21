@@ -543,6 +543,14 @@ void omOvlKill(void) {
 INCLUDE_ASM("asm/nonmatchings/objmain", omMain);
 
 void func_80048E88_49A88(void);
+char const D_800A7AE4_A86E4[] = " SE STP";
+char const D_800A7AEC_A86EC[] = " MUSSTP";
+char const D_800A7AF4_A86F4[] = " INFO  ";
+char const D_800A7AFC_A86FC[] = " LIGHT ";
+char const D_800A7B04_A8704[] = " RESET ";
+char const D_800A7B0C_A870C[] = " CANCEL";
+
+
 INCLUDE_ASM("asm/nonmatchings/objmain", func_80048E88_49A88);
 
 INCLUDE_ASM("asm/nonmatchings/objmain", func_80048EE8_49AE8);
