@@ -473,6 +473,7 @@ segments:
       - [0xA7F20, .rodata, gamemes]
       - [0xA8620, .rodata, pause]
       - [0xA8638, .rodata, 471D0]
+      - [0xA8698, .rodata, objmain]
       - [0xA8740, .rodata, saveEncode]
       - [0xA8760, .rodata, 527E0]
       - [0xA87A0, .rodata, sprman]

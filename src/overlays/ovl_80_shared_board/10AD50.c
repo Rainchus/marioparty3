@@ -389,7 +389,7 @@ void func_800F7E1C_10BA3C_shared_board(void) {
     MBDlgWinExec(CHAR_TOAD, 0x3C13);
     D_80105630_119250_shared_board[0] =
     D_80105630_119250_shared_board[1] =
-    D_80105630_119250_shared_board[2] = 0;
+    D_80105630_119250_shared_board[2] = ITEM_MUSHROOM;
     func_800F76A4_10B2C4_shared_board(0);
     MBDlgWinExec(CHAR_TOAD, 0x3C0A);
 }

@@ -71,43 +71,19 @@ typedef struct UnkData_CD0A0 {
     s8 recentMinigames[6][10]; /* recent minigames per player, up to 2 */
 } UnkData_CD0A0;
 
-extern UnkData_CD0A0 D_800CC4A0_CD0A0;
-extern omObjData* D_80102C04_116824_shared_board;
-extern s16 D_80102C0E_11682E_shared_board;
-extern s16 D_80102C10_116830_shared_board;
-extern s16 D_80102C14_116834_shared_board;
-extern u8 D_800CC3E0_CCFE0[];
-
-void func_800DED3C_F295C_shared_board(omObjData*);
-s32 func_800F52C4_108EE4_shared_board(void);
-void func_8005D2D4_5DED4(s16);
-void func_800DF9EC_F360C_shared_board(void);
-
-void func_800DECF0_F2910_shared_board(void) {
-    if (D_800D2094_D2C94 >= (D_80100EE8_114B08_shared_board + 4)) {
-        HuAudFXPlay(0x104);
-        D_80100EE8_114B08_shared_board = D_800D2094_D2C94;
-    }
-}
-
 typedef struct Unk800CC3DC {
     char unk_00[4];
     s8 unk_04[8]; //unknown size
 } Unk800CC3DC;
 
 extern Unk800CC3DC D_800CC3DC_CCFDC;
-extern void func_800DED3C_F295C_shared_board(omObjData*);
-s32 func_800F52C4_108EE4_shared_board(void);
-void GWMgNoSet(s8);                                    /* extern */
-void func_8005BA90_5C690(s16, s16, s16);               /* extern */
-void func_8005BB18_5C718(s16, f32, f32);               /* extern */
-void func_8005C154_5CD54(s16, s32, s32, s32);                /* extern */
-void func_8005D2D4_5DED4(s16);                         /* extern */
-void func_800DECF0_F2910_shared_board(void);               /* extern */
-void func_800DF8B4_F34D4_shared_board(void);               /* extern */
-void func_800DFAD4_F36F4_shared_board(void);               /* extern */
-void func_800E5B90_F97B0_shared_board(void);               /* extern */
 
+extern UnkData_CD0A0 D_800CC4A0_CD0A0;
+extern omObjData* D_80102C04_116824_shared_board;
+extern s16 D_80102C0E_11682E_shared_board;
+extern s16 D_80102C10_116830_shared_board;
+extern s16 D_80102C14_116834_shared_board;
+extern u8 D_800CC3E0_CCFE0[];
 extern u8 D_80100E18_114A38_shared_board[];
 extern u8 D_80100E20_114A40_shared_board[];
 extern u8 D_80100E28_114A48_shared_board[];
@@ -116,6 +92,29 @@ extern u8 D_80100E8C_114AAC_shared_board[];
 extern s8 D_80100E94_114AB4_shared_board[][2];
 extern u16 D_80102BD4_1167F4_shared_board;
 extern s16 D_80102C12_116832_shared_board;
+
+void func_800DED3C_F295C_shared_board(omObjData*);
+s32 func_800F52C4_108EE4_shared_board(void);
+void func_8005D2D4_5DED4(s16);
+void func_800DF9EC_F360C_shared_board(void);
+extern void func_800DED3C_F295C_shared_board(omObjData*);
+s32 func_800F52C4_108EE4_shared_board(void);
+void GWMgNoSet(s8);
+void func_8005BA90_5C690(s16, s16, s16);
+void func_8005BB18_5C718(s16, f32, f32);
+void func_8005C154_5CD54(s16, s32, s32, s32);
+void func_8005D2D4_5DED4(s16);
+void func_800DECF0_F2910_shared_board(void);
+void func_800DF8B4_F34D4_shared_board(void);
+void func_800DFAD4_F36F4_shared_board(void);
+void func_800E5B90_F97B0_shared_board(void);
+
+void func_800DECF0_F2910_shared_board(void) {
+    if (D_800D2094_D2C94 >= (D_80100EE8_114B08_shared_board + 4)) {
+        HuAudFXPlay(0x104);
+        D_80100EE8_114B08_shared_board = D_800D2094_D2C94;
+    }
+}
 
 void func_800DED3C_F295C_shared_board(omObjData* arg0) {
     ItemSlotEntry* entry = NULL;
@@ -532,13 +531,11 @@ void func_800E00EC_F3D0C_shared_board(omObjData* arg0) {
     D_80102C04_116824_shared_board->work[0] = 0;
 }
 
-
-
-#ifdef NON_MATCHING
 void func_800E00FC_F3D1C_shared_board(s8* output, s32 count) {
     s8 pool[256];
     s32 i;
     s32 randIndex;
+    s32 j;
     
     for (i = 0; i <= count; i++) {
         pool[i] = i;
@@ -549,15 +546,11 @@ void func_800E00FC_F3D1C_shared_board(s8* output, s32 count) {
         output[i] = pool[randIndex];
 
         /* Remove picked element by shifting the rest down */
-        while (randIndex < count) {
-            pool[randIndex] = pool[randIndex + 1];
-            randIndex++;
+        for (j = randIndex; j < count; j++) {
+            pool[j] = pool[j + 1];
         }
     }
 }
-#else
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/F2910", func_800E00FC_F3D1C_shared_board);
-#endif
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/F2910", func_800E01DC_F3DFC_shared_board);
 
