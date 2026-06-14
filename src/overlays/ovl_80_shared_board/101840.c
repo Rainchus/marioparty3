@@ -70,7 +70,7 @@ void func_800EE94C_10256C_shared_board(Object *arg0, s16 arg1, s32 arg2) {
     MBMotionShiftSet(arg0, arg1, 0, 0xA, arg2);
 }
 
-void func_800EE97C_10259C_shared_board(Object *arg0) {
+void MBModelMotionWait(Object *arg0) {
     while (!(MBMotionCheck(arg0) & 1)) {
         HuPrcVSleep();
     }
@@ -82,7 +82,7 @@ s32 BoardPlayerRankCalc(s32 player) {
     s32 score[4];
 
     for (i = 0; i < MB_MAX_PLAYERS; i++) {
-        score[i] = func_800EECB0_1028D0_shared_board(i);
+        score[i] = MBPlayerScoreGet(i);
     }
 
     for (rank = 0, i = 0; i < MB_MAX_PLAYERS; i++) {
@@ -93,7 +93,7 @@ s32 BoardPlayerRankCalc(s32 player) {
     return rank;
 }
 
-s32 func_800EEA58_102678_shared_board(s32 arg0) {
+s32 MBPlayerStealRankGet(s32 arg0) {
     s32 var_a0_2;
     s32 var_a0;
     s32 i;
@@ -104,7 +104,7 @@ s32 func_800EEA58_102678_shared_board(s32 arg0) {
     }
 
     for (i = 0; i < MB_MAX_PLAYERS; i++) {
-        score[i] = func_800EECB0_1028D0_shared_board(i);
+        score[i] = MBPlayerScoreGet(i);
     }
 
     // calc what the highest mg coin total is
@@ -158,7 +158,7 @@ s32 func_800EEA58_102678_shared_board(s32 arg0) {
     return var_a0;
 }
 
-s32 func_800EECB0_1028D0_shared_board(s32 arg0) {
+s32 MBPlayerScoreGet(s32 arg0) {
     return GwPlayer[arg0].star * 1000 + GwPlayer[arg0].coin;
 }
 
@@ -251,7 +251,7 @@ s32 MBRand(f32 arg0) { // 800EFE20 in duel mode,
 }
 
 // is there some kind of macro at play here? the cast to u8 is weird because `work` used to be u8[] in mp1/mp2
-void func_800EEFEC_102C0C_shared_board(Object *arg0, s16 arg1, s16 arg2, s32 arg3) {
+void MBGuideFaceCreate(Object *arg0, s16 arg1, s16 arg2, s32 arg3) {
     arg0->omObj1->work[0] = (u8)func_80017790_18390(arg0->omObj1->model[0], arg1, arg2, arg3);
     arg0->omObj1->work[1] = (u8)arg1;
     arg0->omObj1->work[2] = (u8)arg2;
@@ -260,7 +260,7 @@ void func_800EEFEC_102C0C_shared_board(Object *arg0, s16 arg1, s16 arg2, s32 arg
 void func_800EF068_102C88_shared_board(void) {
 }
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF070_102C90_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBGuideFaceSet);
 
 s32 func_800EF0D8_102CF8_shared_board(s32 arg0) {
     s32 randVal;
@@ -304,42 +304,42 @@ s32 func_800EF0D8_102CF8_shared_board(s32 arg0) {
     return i;
 }
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF200_102E20_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseMesNumGet);
 
 INCLUDE_RODATA("asm/nonmatchings/overlays/ovl_80_shared_board/101840", D_80102320_115F40_shared_board);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF208_102E28_shared_board);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF3BC_102FDC_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseTurnNumCreate);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF67C_10329C_shared_board);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF698_1032B8_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseMainScrExec);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF768_103388_shared_board);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF844_103464_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseDlgMesSet);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF898_1034B8_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseHelpMesSet);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EF8F4_103514_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseHelpMesCreate);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EFA34_103654_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseMesMain);
 
 // draws a message?
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EFD8C_1039AC_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseMesCreate);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EFE0C_103A2C_shared_board);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EFE58_103A78_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseQuitMesCreate);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EFEF4_103B14_shared_board);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800EFFE8_103C08_shared_board);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F01D0_103DF0_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseOptionExec);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F0ABC_1046DC_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseQuitWinExec);
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F0BF8_104818_shared_board);
 
@@ -353,10 +353,10 @@ INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F0E3
 
 INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F0EF0_104B10_shared_board);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F102C_104C4C_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPausePadCfgExec);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F1C94_1058B4_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseModeExec);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F1D34_105954_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseMain);
 
-INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", func_800F1EC8_105AE8_shared_board);
+INCLUDE_ASM("asm/nonmatchings/overlays/ovl_80_shared_board/101840", MBPauseCreate);
