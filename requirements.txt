@@ -1,4 +1,6 @@
 ninja_syntax
+#splat64[mips]==0.41.0
+spimdisasm==1.42.1
 GitPython
 colour
 colorama
